@@ -1,4 +1,4 @@
-# My-blog (IMDB-style filters demo)
+# IMDB-style filters demo
 
 This is a small Create React App demo that adds a filtering portal for movies (actors, directors, genres, rating, year range).
 
