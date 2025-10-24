@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useCallback } from 'react';
-import { FaFilm, FaTh, FaList, FaSlidersH, FaHeart, FaStar } from 'react-icons/fa';
+import { FaFilm, FaTh, FaList, FaSlidersH, FaHeart, FaStar, FaPlayCircle } from 'react-icons/fa';
 import moviesData from './data/movies';
 import Filters from './components/Filters';
 import MovieList from './components/MovieList';
@@ -109,8 +109,8 @@ function EnhancedMovieApp() {
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-pink-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-500/5 rounded-full blur-3xl"></div>
       </div>
 
       {/* Header */}
@@ -119,24 +119,28 @@ function EnhancedMovieApp() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="relative">
-                <FaFilm className="w-8 h-8 text-purple-400 animate-pulse" />
-                <div className="absolute -top-1 -right-1 w-3 h-3 bg-pink-500 rounded-full animate-ping"></div>
+                <FaPlayCircle className="w-8 h-8 text-purple-400 animate-pulse" />
+                <div className="absolute -top-1 -right-1 w-3 h-3 bg-blue-500 rounded-full animate-ping"></div>
               </div>
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent animate-gradient">
-                MovieHub
-              </h1>
+              <div className="flex flex-col">
+                <h1 className="text-2xl font-bold bg-gradient-to-r from-purple-400 via-blue-400 to-pink-400 bg-clip-text text-transparent animate-gradient">
+                  CineVerse
+                </h1>
+                <p className="text-xs text-purple-300/70">Your Cinematic Universe</p>
+              </div>
               <span className="px-2 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full border border-purple-500/30">
-                {moviesData.length} Movies
+                {moviesData.length} Films
               </span>
             </div>
             <div className="flex items-center gap-4">
-              <div className="hidden md:flex items-center gap-2 text-purple-300 text-sm">
+              <div className="hidden md:flex items-center gap-2 text-purple-300 text-sm bg-black/30 px-3 py-1 rounded-full border border-purple-500/30">
                 <FaHeart className="w-4 h-4 text-pink-400" />
                 <span>{favorites.size} Favorites</span>
               </div>
               <button
                 onClick={() => setViewMode(viewMode === 'grid' ? 'list' : 'grid')}
                 className="p-2 rounded-lg bg-purple-500/20 hover:bg-purple-500/30 border border-purple-500/30 hover:border-purple-400/50 transition-all duration-300 group"
+                title={viewMode === 'grid' ? 'Switch to List View' : 'Switch to Grid View'}
               >
                 {viewMode === 'grid' ? 
                   <FaList className="w-5 h-5 text-purple-300 group-hover:text-purple-200 transition-colors" /> : 
@@ -146,6 +150,7 @@ function EnhancedMovieApp() {
               <button
                 onClick={() => setShowFilters(!showFilters)}
                 className="md:hidden p-2 rounded-lg bg-purple-500/20 hover:bg-purple-500/30 border border-purple-500/30 hover:border-purple-400/50 transition-all duration-300"
+                title="Toggle Filters"
               >
                 <FaSlidersH className="w-5 h-5 text-purple-300" />
               </button>
@@ -196,6 +201,15 @@ function EnhancedMovieApp() {
           toggleFavorite={toggleFavorite}
         />
       </div>
+
+      {/* Footer */}
+      <footer className="bg-black/20 backdrop-blur-xl border-t border-purple-500/30 py-4 relative">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <p className="text-purple-300/60 text-sm">
+            🎬 CineVerse - Explore the Universe of Cinema • {new Date().getFullYear()}
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }

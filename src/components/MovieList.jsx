@@ -70,8 +70,8 @@ const MovieList = ({
             <FaFilm className="w-20 h-20 text-purple-400/30 mx-auto mb-4" />
             <div className="absolute inset-0 bg-purple-400/20 blur-xl rounded-full"></div>
           </div>
-          <p className="text-xl text-purple-300/70 mb-2">No movies found</p>
-          <p className="text-purple-400/50 mb-6">Try adjusting your filters or search terms</p>
+          <p className="text-xl text-purple-300/70 mb-2">No films found</p>
+          <p className="text-purple-400/50 mb-6">Adjust your search to explore CineVerse</p>
           <button
             onClick={clearAllFilters}
             className="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg hover:from-purple-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-105 border border-purple-400/50"
